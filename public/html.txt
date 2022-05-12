@@ -10,6 +10,6 @@ body
                 p
             .cards(on)
                 .card(on)
-                    .cover
+                    .cover(on - implement uncover function)
                     .question
             .results
