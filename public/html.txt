@@ -11,5 +11,6 @@ body
             .cards(on)
                 .card(on)
                     .cover(on - implement uncover function)
-                    .question
+                    .question(OK)
+                    .answer(on - implement button's functions)
             .results
