@@ -4,10 +4,8 @@
     box-sizing: border-box;
 }
 
-
-
-.initial {
-    display: initial;
+.card:hover{
+    cursor: pointer;
 }
 
 body{
@@ -25,6 +23,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    position: relative;
 }
 
 /*=============
@@ -77,6 +77,87 @@ body{
     text-align: center;
     color: #D70900;
 }
+
+/*===========
+=== START ===
+=============*/
+
+.start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top{
+    width: 256px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px dashed black;
+
+    position: absolute;
+    top: 0px;
+    
+}
+
+.top img{
+    width: 52px;
+    height: 60px;
+}
+
+.top p{
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+
+    color: #FFFFFF;
+}
+
+.cards{
+    width: 300px;
+    height: fit-content;
+    border: 1px dashed black;
+
+    position: absolute;
+    top: 150px;
+}
+
+.card{
+    margin-bottom: 25px;
+}
+
+.cover{
+    width: 300px;
+    height: 65px;
+    padding: 0 15px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cover p{
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+
+    color: #333333;
+}
+
+.cover ion-icon{
+    width: 30px;
+    height: 30px;
+}
+
+
 
 /*=============
 === GENERAL ===

@@ -1,3 +1,15 @@
 body
     .root
-        .welcome
+        .welcome(on)
+            img(OK)
+            p(OK)
+            button(on - implement button function)
+        .start(on)
+            .top(OK)
+                img
+                p
+            .cards(on)
+                .card(on)
+                    .cover
+                    .question
+            .results
