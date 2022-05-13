@@ -1,7 +1,7 @@
 import React from 'react';
 import Results from './Results';
 
-export default function Card({counter, setCounter, total}){
+export default function Card({counter, setCounter, total, results, setResults, setEndMessage, error, setError}){
     
     const buttons = [{bgcolor:"background-red", text:"Não lembrei",
                     cardStyle: "red-text cross-text", icon:"close-circle", colorID:"red"},
@@ -16,18 +16,28 @@ export default function Card({counter, setCounter, total}){
     const [iconName, setIconName] = React.useState('play-outline');
     const [iconColor, setIconColor] = React.useState('black');
 
+    const congrats = `Parabéns! Você não se esqueceu de nenhum flashcard!`;
+    const putz = `Putz! Ainda faltam alguns... Mas não desanime!`;
+
     function markAnswer(classStyle, iconName, iconColor){
         setClassStyle(classStyle);
         setIconName(iconName);
         setIconColor(iconColor);
 
         setCounter(counter + 1);
-    }
-
-    function isEndGame(counter){
-        if(counter === total){
-            alert("zerou o game")
+        setResults([...results, <ion-icon id={iconColor} name={iconName}></ion-icon>])
+        
+        if(iconColor === "red"){
+            debugger;
+            setError(error++)
         }
+
+        if(counter === total && error > 0){
+            setEndMessage(putz);
+        } else if(counter === total && error === 0){
+            setEndMessage(congrats);
+        }      
+        
     }
 
     return(

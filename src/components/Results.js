@@ -1,7 +1,7 @@
-export default function Results({counter, total}){
+export default function Results(props){
     return(
         <div className="results">
-            <p>{counter}/{total} CONCLUÍDOS</p>
+            {props.children}  
         </div>
     );
 }

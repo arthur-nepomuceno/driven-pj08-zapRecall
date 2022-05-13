@@ -13,4 +13,4 @@ body
                     .cover(on - implement uncover function)
                     .question(on - implement turn card function)
                     .answer(on - implement button's functions)
-            .results(on)
+            .results(on - create end game message)
