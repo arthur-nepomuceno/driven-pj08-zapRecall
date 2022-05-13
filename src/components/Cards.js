@@ -1,9 +1,10 @@
 import Card from "./Card";
 
-export default function Cards(){
+export default function Cards({counter, setCounter, total}){
     return(
         <div className="cards">
-            <Card />
+            <Card counter={counter} setCounter={setCounter} total={total}/>
+            
         </div>
     );
 }

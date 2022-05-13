@@ -1,6 +1,7 @@
 import React from 'react';
+import Results from './Results';
 
-export default function Card(){
+export default function Card({counter, setCounter, total}){
     
     const buttons = [{bgcolor:"background-red", text:"Não lembrei",
                     cardStyle: "red-text cross-text", icon:"close-circle", colorID:"red"},
@@ -19,6 +20,14 @@ export default function Card(){
         setClassStyle(classStyle);
         setIconName(iconName);
         setIconColor(iconColor);
+
+        setCounter(counter + 1);
+    }
+
+    function isEndGame(counter){
+        if(counter === total){
+            alert("zerou o game")
+        }
     }
 
     return(
