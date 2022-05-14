@@ -1,57 +1,73 @@
 import React from 'react';
-import Results from './Results';
 
-export default function Card({counter, setCounter, total, results, setResults, setEndMessage, error, setError}){
+export default function Card({number, 
+                                question, 
+                                answer, 
+                                counter, 
+                                setCounter, 
+                                results, 
+                                setResults, 
+                                setError}){
     
-    const buttons = [{bgcolor:"background-red", text:"Não lembrei",
-                    cardStyle: "red-text cross-text", icon:"close-circle", colorID:"red"},
+    const buttons = [{bgcolor:"background-red", 
+                    text:"Não lembrei",
+                    cardStyle: "red-text cross-text", 
+                    icon:"close-circle", 
+                    colorID:"red"},
 
-                    {bgcolor:"background-yellow", text:"Quase não lembrei",
-                    cardStyle: "yellow-text cross-text", icon:"help-circle", colorID:"yellow"},
+                    {bgcolor:"background-yellow", 
+                    text:"Quase não lembrei",
+                    cardStyle: "yellow-text cross-text", 
+                    icon:"help-circle", 
+                    colorID:"yellow"},
 
-                    {bgcolor:"background-green", text:"Zap!",
-                    cardStyle: "green-text cross-text", icon:"checkmark-circle", colorID:"green"}]
+                    {bgcolor:"background-green", 
+                    text:"Zap!",
+                    cardStyle: "green-text cross-text", 
+                    icon:"checkmark-circle", 
+                    colorID:"green"}]
 
     const [classStyle, setClassStyle] = React.useState('black-text');
-    const [iconName, setIconName] = React.useState('play-outline');
     const [iconColor, setIconColor] = React.useState('black');
-
-    const congrats = `Parabéns! Você não se esqueceu de nenhum flashcard!`;
-    const putz = `Putz! Ainda faltam alguns... Mas não desanime!`;
+    const [iconName, setIconName] = React.useState('play-outline');
+    
+    const [click, setClick] = React.useState(false);
+    const [showQuestion, setShowQuestion] = React.useState(false);
+    const [showAnswer, setShowAnswer] = React.useState(false);
 
     function markAnswer(classStyle, iconName, iconColor){
         setClassStyle(classStyle);
         setIconName(iconName);
         setIconColor(iconColor);
+        if(iconColor === "red"){
+            setError(true)
+        }
 
         setCounter(counter + 1);
         setResults([...results, <ion-icon id={iconColor} name={iconName}></ion-icon>])
         
-        if(iconColor === "red"){
-            debugger;
-            setError(error++)
-        }
-
-        if(counter === total && error > 0){
-            setEndMessage(putz);
-        } else if(counter === total && error === 0){
-            setEndMessage(congrats);
-        }      
-        
-    }
+        setClick(false)
+        setShowAnswer(false)        
+    }  
 
     return(
         <div className="card">
-            <div className="cover">
-                <p className={classStyle}>Pergunta 1</p>
-                <ion-icon id={iconColor} name={iconName}></ion-icon>
+            <div className={`cover ${click? "hide" : ""}`}>
+                <p className={classStyle}>Pergunta {number}</p>
+                <div onClick={() => {setClick(true); setShowQuestion(true)}}>
+                    <ion-icon id={iconColor} name={iconName}></ion-icon>
+                </div>                
             </div>
-            <div className="question">
-                <p>O que é JSX?</p>
-                <ion-icon name="repeat-outline"></ion-icon>
+
+            <div className={`question ${showQuestion? "" : "hide"}`}>
+                <p>{question}</p>
+                <div onClick={() => {setShowAnswer(true); setShowQuestion(false)}}>
+                    <ion-icon name="repeat-outline"></ion-icon>
+                </div>                
             </div>
-            <div className="answer">
-                <p>Uma extensão de linguagem do JavaScript</p>
+
+            <div className={`answer ${showAnswer? "" : "hide"}`}>
+                <p>{answer}</p>
                 {buttons.map((button, index) => <button
                                                 key={index}
                                                 className={button.bgcolor} 

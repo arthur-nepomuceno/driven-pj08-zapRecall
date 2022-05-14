@@ -1,11 +1,7 @@
-import Welcome from "./Welcome";
-import Recall from "./Recall"
+import All from "./All";
 
 export default function App(){
     return(
-        <>
-            <Welcome />
-            <Recall />
-        </>
+        <All/>        
     );
 }

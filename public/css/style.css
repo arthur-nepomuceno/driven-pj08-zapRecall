@@ -9,7 +9,7 @@ ion-icon{
     height: 30px;
 }
 
-.card, button:hover{
+.cover div, .question div, button:hover{
     cursor: pointer;
 }
 
@@ -87,7 +87,7 @@ body{
 === START ===
 =============*/
 
-.start{
+.recall{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,7 +100,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px dashed black;
 
     position: absolute;
     top: 0px;
@@ -123,12 +122,18 @@ body{
 
 .cards{
     width: 300px;
-    height: fit-content;
-    border: 1px dashed black;
+    height: 600px;
 
     position: absolute;
     top: 150px;
+
+    overflow-y: scroll;
 }
+
+.cards::-webkit-scrollbar {
+    display: none;
+  }
+
 
 .card{
     margin-bottom: 25px;
@@ -230,12 +235,14 @@ body{
 
 .results{
     width: 375px;
-    height: 70px;
+    min-height: 85px;
+    padding: 15px;
     
     background: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 

@@ -1,16 +1,18 @@
 import Card from "./Card";
 
-export default function Cards({counter, setCounter, total, results, setResults, setEndMessage, error, setError}){
+export default function Cards({cards, counter, setCounter, results, setResults, setError}){
+    
     return(
         <div className="cards">
-            <Card counter={counter} 
-                setCounter={setCounter} 
-                total={total}
-                results={results} 
-                setResults={setResults}
-                setEndMessage={setEndMessage}
-                error={error}
-                setError={setError}/>            
+            {cards.map((element, index) => <Card key={index}
+                                                number={index + 1}
+                                                question={element.question}
+                                                answer={element.answer}            
+                                                counter={counter} 
+                                                setCounter={setCounter} 
+                                                results={results} 
+                                                setResults={setResults}
+                                                setError={setError}/> )}           
         </div>
     );
 }
