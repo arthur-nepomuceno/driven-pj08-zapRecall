@@ -1,7 +1,7 @@
-import All from "./All";
+import Recall from "./Recall";
 
 export default function App(){
     return(
-        <All/>        
+        <Recall/>        
     );
 }
