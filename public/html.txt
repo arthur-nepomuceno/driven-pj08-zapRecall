@@ -1,16 +1,16 @@
 body
     .root
-        .welcome(on)
+        .welcome(OK)
             img(OK)
             p(OK)
-            button(on - implement button function)
-        .start(on)
+            button(OK)
+        .start(OK)
             .top(OK)
                 img
                 p
-            .cards(on)
-                .card(on)
-                    .cover(on - implement uncover function)
-                    .question(on - implement turn card function)
-                    .answer(on - implement button's functions)
-            .results(on - create end game message)
+            .cards(OK)
+                .card(OK)
+                    .cover(OK)
+                    .question(OK)
+                    .answer(OK)
+            .results(OK)
