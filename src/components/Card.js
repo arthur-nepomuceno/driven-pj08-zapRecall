@@ -34,6 +34,7 @@ export default function Card({number,
     const [click, setClick] = React.useState(false);
     const [showQuestion, setShowQuestion] = React.useState(false);
     const [showAnswer, setShowAnswer] = React.useState(false);
+    const [disable, setDisable] = React.useState(false);
 
     function markAnswer(classStyle, iconName, iconColor){
         setClassStyle(classStyle);
@@ -47,14 +48,15 @@ export default function Card({number,
         setResults([...results, <ion-icon id={iconColor} name={iconName}></ion-icon>])
         
         setClick(false)
-        setShowAnswer(false)        
+        setShowAnswer(false)   
+        setDisable(true)     
     }  
 
     return(
         <div className="card">
             <div className={`cover ${click? "hide" : ""}`}>
                 <p className={classStyle}>Pergunta {number}</p>
-                <div onClick={() => {setClick(true); setShowQuestion(true)}}>
+                <div onClick={disable ? '' : () => {setClick(true); setShowQuestion(true)}}>
                     <ion-icon id={iconColor} name={iconName}></ion-icon>
                 </div>                
             </div>
